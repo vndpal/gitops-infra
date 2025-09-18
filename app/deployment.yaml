@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: selfhealing-app
+  namespace: default
+spec:
+  replicas: 2  # This will be enforced automatically
+  selector:
+    matchLabels:
+      app: selfhealing-app
+  template:
+    metadata:
+      labels:
+        app: selfhealing-app
+    spec:
+      containers:
+      - name: react-app
+        image: vndpal/selfhealing-app:v1.0.0  # Update this!
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "50m"
+          limits:
+            memory: "128Mi"
+            cpu: "100m"
