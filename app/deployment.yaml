@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: react-app
-        image: vndpal/selfhealing-app:v1.0.0  # Update this!
+        image: vndpal/selfhealing-app:v2.0.0  # Update this!
         ports:
         - containerPort: 80
         resources:
